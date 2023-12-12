@@ -1,21 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { BsPlay, BsPause } from "react-icons/bs";
+import { PlayIcon, PauseIcon } from "@radix-ui/react-icons";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { IAudioPlayerProps } from "@/interfaces/IAudioPlayerProps";
 import { IRadioStation } from "@/interfaces/IRadioStation";
 import { Radiostations } from "@/public/utils/Radiostations";
-
-interface Translations {
-    [key: string]: {
-        nowPlaying: string;
-        noStationSelected: string;
-        play: string;
-        pause: string;
-        selectRadioStation: string;
-    };
-}
+import { useLanguage } from "./LanguageProvider";
 
 const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     const [isPlaying, setPlaying] = useState(false);
@@ -24,25 +15,7 @@ const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
         null
     );
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [selectedLanguage, setSelectedLanguage] = useState("en");
-
-    const translations: Translations = {
-        en: {
-            nowPlaying: "Now playing:",
-            noStationSelected: "No station selected",
-            play: "Play",
-            pause: "Pause",
-            selectRadioStation: "Select Radio Station:",
-        },
-        de: {
-            nowPlaying: "Gerade läuft:",
-            noStationSelected: "Kein Sender ausgewählt",
-            play: "Abspielen",
-            pause: "Pause",
-            selectRadioStation: "Radiosender auswählen:",
-        },
-        // Füge hier weitere Sprachen hinzu
-    };
+    const { language } = useLanguage();
 
     useEffect(() => {
         const { current: audioElement } = audioRef;
@@ -77,13 +50,6 @@ const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
         }
     };
 
-    const handleChangeLanguage = (
-        event: React.ChangeEvent<HTMLSelectElement>
-    ) => {
-        const newLanguage = event.target.value;
-        setSelectedLanguage(newLanguage);
-    };
-
     return (
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
             <div className="flex flex-col items-center justify-center mb-4">
@@ -94,18 +60,28 @@ const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
                     onClick={togglePlay}
                 >
                     {isPlaying ? (
-                        <BsPause className="mr-2" />
+                        <PauseIcon className="mr-2" />
                     ) : (
-                        <BsPlay className="mr-2" />
+                        <PlayIcon className="mr-2" />
                     )}
                     {isPlaying
-                        ? translations[selectedLanguage].pause
-                        : translations[selectedLanguage].play}
+                        ? language === "de"
+                            ? "Pause"
+                            : "Pause"
+                        : language === "de"
+                        ? "Abspielen"
+                        : "Play"}
                 </Button>
                 <Label className="text-white mb-2">
                     {selectedRadio
-                        ? `${translations[selectedLanguage].nowPlaying} ${selectedRadio.name}`
-                        : translations[selectedLanguage].noStationSelected}
+                        ? `${
+                              language === "de"
+                                  ? "Gerade läuft:"
+                                  : "Now playing:"
+                          } ${selectedRadio.name}`
+                        : language === "de"
+                        ? "Kein Sender ausgewählt"
+                        : "No station selected"}
                 </Label>
                 <Input
                     type="range"
@@ -116,8 +92,10 @@ const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
                     onChange={handleVolumeChange}
                     className="w-full"
                 />
-                <Label className="text-white mt-4 mb-3">
-                    {translations[selectedLanguage].selectRadioStation}
+                <Label className="text-white mt-4 mb-4">
+                    {language === "de"
+                        ? "Radiosender auswählen:"
+                        : "Select Radio Station:"}
                 </Label>
                 <select
                     onChange={handleRadioChange}
