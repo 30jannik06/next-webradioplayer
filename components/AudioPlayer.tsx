@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { PlayIcon, PauseIcon } from "@radix-ui/react-icons";
 import { Button } from "./ui/button";
-import { Label } from "./ui/label";
-import { IAudioPlayerProps } from "@/interfaces/IAudioPlayerProps";
+import { VolumeControl } from "./VolumeControl";
+import { RadioStationSelector } from "./RadioStationSelector";
+import { NowPlayingLabel } from "./NowPlayingLabel";
+import AudioController from "./AudioController";
 import { IRadioStation } from "@/interfaces/IRadioStation";
+import { IAudioPlayerProps } from "@/interfaces/IAudioPlayerProps";
 import { useLanguage } from "./LanguageProvider";
-import {VolumeControl} from "./VolumeControl";
-import {RadioStationSelector} from "./RadioStationSelector";
 
 export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     const [isPlaying, setPlaying] = useState(false);
@@ -14,22 +15,8 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     const [selectedRadio, setSelectedRadio] = useState<IRadioStation | null>(
         null
     );
-    const audioRef = useRef<HTMLAudioElement>(null);
+
     const { language } = useLanguage();
-
-    useEffect(() => {
-        const { current: audioElement } = audioRef;
-
-        if (audioElement) {
-            audioElement.volume = volume;
-
-            if (isPlaying) {
-                audioElement.play();
-            } else {
-                audioElement.pause();
-            }
-        }
-    }, [isPlaying, volume, selectedRadio]);
 
     const togglePlay = () => {
         setPlaying(!isPlaying);
@@ -57,25 +44,20 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
                     ) : (
                         <PlayIcon className="mr-2" />
                     )}
-                    {isPlaying
-                        ? language === "de"
-                            ? "Pause"
-                            : "Pause"
-                        : language === "de"
-                        ? "Abspielen"
-                        : "Play"}
+                    {isPlaying ? "Pause" : "Play"}
                 </Button>
-                <Label className="text-white mb-2">
-                    {selectedRadio
-                        ? `${
-                              language === "de"
-                                  ? "Gerade läuft:"
-                                  : "Now playing:"
-                          } ${selectedRadio.name}`
-                        : language === "de"
-                        ? "Kein Sender ausgewählt"
-                        : "No station selected"}
-                </Label>
+
+                <NowPlayingLabel
+                    language={language}
+                    selectedRadio={selectedRadio}
+                />
+                <AudioController
+                    isPlaying={isPlaying}
+                    volume={volume}
+                    selectedRadio={selectedRadio}
+                    onTogglePlay={togglePlay}
+                    onVolumeChange={handleVolumeChange}
+                />
                 <VolumeControl
                     volume={volume}
                     onVolumeChange={handleVolumeChange}
@@ -86,12 +68,6 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
                     language={language}
                 />
             </div>
-            <audio
-                ref={audioRef}
-                src={selectedRadio?.streamUrl || streamUrl}
-                title="Song Title"
-            />
         </div>
     );
 };
-
