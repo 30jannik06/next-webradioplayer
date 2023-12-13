@@ -1,8 +1,8 @@
 import React from "react";
 import { useLanguage } from "./LanguageProvider";
-import ErrorBoundary from "./ErrorBoundary";
+import {ErrorBoundary} from "./ErrorBoundary";
 
-const LanguageToggler: React.FC = () => {
+export const LanguageToggler: React.FC = () => {
     const { language, toggleLanguage } = useLanguage();
 
     return (
@@ -17,5 +17,3 @@ const LanguageToggler: React.FC = () => {
         </ErrorBoundary>
     );
 };
-
-export default LanguageToggler;

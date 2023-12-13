@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useState } from "react";
 import { IRadioStation } from "@/interfaces/IRadioStation";
 import { Radiostations } from "@/public/utils/Radiostations";
-import ErrorBoundary from "./ErrorBoundary";
+import {ErrorBoundary} from "./ErrorBoundary";
 import { IRadioStationSelectorProps } from "@/interfaces/IRadioStationSelectorProps";
 
-const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
+export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     onChange,
     language,
 }) => {
@@ -70,4 +70,3 @@ const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     );
 };
 
-export default RadioStationSelector;

@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { ILanguageContextProps } from "../interfaces/ILanguageContextProps";
 import { ILanguageProviderProps } from "@/interfaces/ILanguageProviderProps";
 
@@ -10,10 +10,10 @@ const LanguageContext = createContext<ILanguageContextProps | undefined>(
 export const LanguageProvider: React.FC<ILanguageProviderProps> = ({
     children,
 }: ILanguageProviderProps) => {
-    const [language, setLanguage] = useState("en");
+    const [language, setLanguage] = useState("de");
 
     const toggleLanguage = () => {
-        setLanguage((prevLanguage) => (prevLanguage === "en" ? "de" : "en"));
+        setLanguage((prevLanguage) => (prevLanguage === "de" ? "en" : "de"));
     };
 
     return (

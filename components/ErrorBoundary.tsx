@@ -2,7 +2,7 @@ import React, { Component, ErrorInfo, ReactNode } from "react";
 import { IErrorBoundaryProps } from "@/interfaces/IErrorBoundaryProps";
 import { IErrorBoundaryState } from "@/interfaces/IErrorBoundaryState";
 
-class ErrorBoundary extends Component<
+export class ErrorBoundary extends Component<
     IErrorBoundaryProps,
     IErrorBoundaryState
 > {
@@ -30,4 +30,3 @@ class ErrorBoundary extends Component<
     }
 }
 
-export default ErrorBoundary;

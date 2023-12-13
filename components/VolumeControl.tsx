@@ -3,7 +3,7 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { IVolumeControlProps } from "@/interfaces/IVolumeControlProps";
 
-const VolumeControl: React.FC<IVolumeControlProps> = ({
+export const VolumeControl: React.FC<IVolumeControlProps> = ({
     volume,
     onVolumeChange,
     language,
@@ -34,5 +34,3 @@ const VolumeControl: React.FC<IVolumeControlProps> = ({
         </div>
     );
 };
-
-export default VolumeControl;

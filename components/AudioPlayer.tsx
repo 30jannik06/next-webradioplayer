@@ -5,10 +5,10 @@ import { Label } from "./ui/label";
 import { IAudioPlayerProps } from "@/interfaces/IAudioPlayerProps";
 import { IRadioStation } from "@/interfaces/IRadioStation";
 import { useLanguage } from "./LanguageProvider";
-import VolumeControl from "./VolumeControl";
-import RadioStationSelector from "./RadioStationSelector";
+import {VolumeControl} from "./VolumeControl";
+import {RadioStationSelector} from "./RadioStationSelector";
 
-const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
+export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     const [isPlaying, setPlaying] = useState(false);
     const [volume, setVolume] = useState(0.5);
     const [selectedRadio, setSelectedRadio] = useState<IRadioStation | null>(
@@ -95,4 +95,3 @@ const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     );
 };
 
-export default AudioPlayer;
