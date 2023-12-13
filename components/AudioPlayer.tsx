@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { PlayIcon, PauseIcon } from "@radix-ui/react-icons";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { IAudioPlayerProps } from "@/interfaces/IAudioPlayerProps";
 import { IRadioStation } from "@/interfaces/IRadioStation";
-import { Radiostations } from "@/public/utils/Radiostations";
 import { useLanguage } from "./LanguageProvider";
+import VolumeControl from "./VolumeControl";
+import RadioStationSelector from "./RadioStationSelector";
 
 const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     const [isPlaying, setPlaying] = useState(false);
@@ -35,19 +35,12 @@ const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
         setPlaying(!isPlaying);
     };
 
-    const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setVolume(parseFloat(event.target.value));
+    const handleVolumeChange = (newVolume: number) => {
+        setVolume(newVolume);
     };
 
-    const handleRadioChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedStationId = event.target.value;
-        const selectedStation = Radiostations.find(
-            (station) => station.id === selectedStationId
-        );
-
-        if (selectedStation) {
-            setSelectedRadio(selectedStation);
-        }
+    const handleRadioChange = (selectedStation: IRadioStation | null) => {
+        setSelectedRadio(selectedStation);
     };
 
     return (
@@ -83,30 +76,15 @@ const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
                         ? "Kein Sender ausgewählt"
                         : "No station selected"}
                 </Label>
-                <Input
-                    type="range"
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    value={volume}
-                    onChange={handleVolumeChange}
-                    className="w-full"
+                <VolumeControl
+                    volume={volume}
+                    onVolumeChange={handleVolumeChange}
+                    language={language}
                 />
-                <Label className="text-white mt-4 mb-4">
-                    {language === "de"
-                        ? "Radiosender auswählen:"
-                        : "Select Radio Station:"}
-                </Label>
-                <select
+                <RadioStationSelector
                     onChange={handleRadioChange}
-                    className="bg-gray-700 text-white p-2 rounded appearance-none"
-                >
-                    {Radiostations.map((station) => (
-                        <option key={station.id} value={station.id}>
-                            {station.name}
-                        </option>
-                    ))}
-                </select>
+                    language={language}
+                />
             </div>
             <audio
                 ref={audioRef}
