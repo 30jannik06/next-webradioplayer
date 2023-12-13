@@ -24,7 +24,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     const groupedStations: { [key: string]: IRadioStation[] } = {};
 
     Radiostations.forEach((station) => {
-        const group = station.group || "Other"; // Default to "Other" if no group is specified
+        const group = station.group || "Other"; 
         if (!groupedStations[group]) {
             groupedStations[group] = [];
         }
