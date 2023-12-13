@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {LanguageToggler} from "./LanguageToggler";
+import { LanguageToggler } from "./LanguageToggler";
 import { Logo } from "./Logo";
 
 export const Header = () => {
