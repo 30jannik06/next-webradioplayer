@@ -23,16 +23,3 @@ export const NowPlayingLabel: React.FC<NowPlayingLabelProps> = ({
         </Label>
     );
 };
-
-                {
-                    /* <Label className="text-white mb-2">
-                    {selectedRadio && (
-                        <>
-                            {language === "de"
-                                ? "Gerade läuft:"
-                                : "Now playing:"}{" "}
-                            {selectedRadio.name}
-                        </>
-                    )}
-                </Label> */
-                }
