@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { IRadioStation } from "@/interfaces/IRadioStation";
-import { Radiostations } from "@/public/utils/Radiostations";
-import {ErrorBoundary} from "./ErrorBoundary";
+import { Radiostations } from "@/components/utils/Radiostations";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { IRadioStationSelectorProps } from "@/interfaces/IRadioStationSelectorProps";
 
 export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
@@ -24,7 +24,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     const groupedStations: { [key: string]: IRadioStation[] } = {};
 
     Radiostations.forEach((station) => {
-        const group = station.group || "Other"; 
+        const group = station.group || "Other";
         if (!groupedStations[group]) {
             groupedStations[group] = [];
         }
@@ -64,9 +64,33 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
                             </optgroup>
                         )
                     )}
+                    {/* Custom-Option für eigenen Stream-Link */}
+                    <option value="custom">
+                        {language === "de"
+                            ? "Eigener Stream-Link"
+                            : "Custom Stream Link"}
+                    </option>
                 </select>
+                {/* Eingabefeld für den eigenen Stream-Link */}
+                {selectedStationId === "custom" && (
+                    <input
+                        type="text"
+                        placeholder={
+                            language === "de"
+                                ? "Eigenen Link eingeben"
+                                : "Enter custom link"
+                        }
+                        onChange={(e) =>
+                            onChange({
+                                id: "custom",
+                                name: e.target.value,
+                                streamUrl: e.target.value, // Hier hinzugefügt
+                            })
+                        }
+                        className="bg-gray-700 text-white p-2 rounded mt-2 block w-full"
+                    />
+                )}
             </div>
         </ErrorBoundary>
     );
 };
-
