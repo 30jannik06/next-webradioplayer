@@ -2,7 +2,7 @@
 
 import React from "react";
 import { AudioPlayer } from "@/components/AudioPlayer";
-import { radioStreamUrl } from "@/public/utils/Radiostations";
+import { radioStreamUrl } from "@/components/utils/Radiostations";
 
 const Home: React.FC = () => {
     return (
