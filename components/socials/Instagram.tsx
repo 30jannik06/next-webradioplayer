@@ -9,7 +9,12 @@ export const Instagram = () => {
             target="_blank"
             rel="noopener noreferrer"
         >
-            <Image src={instagram} alt="Instagram" width={40} height={40} />
+            <Image
+                src={instagram}
+                alt="Instagram"
+                //width={"auto"}
+                height={38}
+            />
         </a>
     );
 };

@@ -9,7 +9,12 @@ export const Twitter = () => {
             target="_blank"
             rel="noopener noreferrer"
         >
-            <Image src={twitter} alt="Twitter" width={40} height={40} />
+            <Image
+                src={twitter}
+                alt="Twitter"
+                //width={"auto"}
+                height={38}
+            />
         </a>
     );
 };

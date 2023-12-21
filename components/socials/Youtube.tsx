@@ -9,7 +9,12 @@ export const Youtube = () => {
             target="_blank"
             rel="noopener noreferrer"
         >
-            <Image src={youtube} alt="YouTube" width={40} height={40} />
+            <Image
+                src={youtube}
+                alt="YouTube"
+                //width={"auto"}
+                height={38}
+            />
         </a>
     );
 };

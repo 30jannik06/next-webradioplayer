@@ -10,10 +10,10 @@ export const Discord = () => {
             rel="noopener noreferrer"
         >
             <Image
-                src={discord} 
+                src={discord}
                 alt="Discord"
-                width={40}
-                height={40}
+                //width={"auto"}
+                height={38}
             />
         </a>
     );
