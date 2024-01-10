@@ -13,9 +13,11 @@ Contributions are always welcome!
 
 ## Screenshots
 
-![App Screenshot](https://raw.githubusercontent.com/30jannik06/next-webradioplayer/main/Examples/Example.png)
+German Translation
+![App Screenshot](https://raw.githubusercontent.com/30jannik06/next-webradioplayer/main/Examples/ExampleDE.png)
 
-
+English Translation
+![App Screenshot](https://raw.githubusercontent.com/30jannik06/next-webradioplayer/main/Examples/ExampleEN.png)
 ## Tech Stack
 
 **Server:** Node, React, NextJS, TailwindCSS
