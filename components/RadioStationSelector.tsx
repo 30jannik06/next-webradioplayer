@@ -1,8 +1,11 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, useEffect } from "react";
 import { IRadioStation } from "@/interfaces/IRadioStation";
-import { Radiostations } from "@/components/utils/Radiostations";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { IRadioStationSelectorProps } from "@/interfaces/IRadioStationSelectorProps";
+import { Input } from "./ui/input";
+
+// Importieren Sie Ihre Radio-Stationen aus der JSON-Datei
+import radioStationsData from "@/data/radioStation.json";
 
 export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     onChange,
@@ -15,7 +18,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     const handleRadioChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const stationId = event.target.value;
         setSelectedStationId(stationId);
-        const selectedStation = Radiostations.find(
+        const selectedStation = radioStationsData.find(
             (station) => station.id === stationId
         );
         onChange(selectedStation || null);
@@ -23,7 +26,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
 
     const groupedStations: { [key: string]: IRadioStation[] } = {};
 
-    Radiostations.forEach((station) => {
+    radioStationsData.forEach((station) => {
         const group = station.group || "Other";
         if (!groupedStations[group]) {
             groupedStations[group] = [];
@@ -73,7 +76,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
                 </select>
                 {/* Eingabefeld für den eigenen Stream-Link */}
                 {selectedStationId === "custom" && (
-                    <input
+                    <Input
                         type="text"
                         placeholder={
                             language === "de"
@@ -84,7 +87,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
                             onChange({
                                 id: "custom",
                                 name: e.target.value,
-                                streamUrl: e.target.value, // Hier hinzugefügt
+                                streamUrl: e.target.value,
                             })
                         }
                         className="bg-gray-700 text-white p-2 rounded mt-2 block w-full"
