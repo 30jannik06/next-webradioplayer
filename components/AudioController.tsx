@@ -5,8 +5,6 @@ const AudioController: React.FC<IAudioControllerProps> = ({
     isPlaying,
     volume,
     selectedRadio,
-    onTogglePlay,
-    onVolumeChange,
 }) => {
     const audioRef = useRef<HTMLAudioElement>(null);
 
