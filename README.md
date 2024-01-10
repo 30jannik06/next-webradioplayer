@@ -1,27 +1,32 @@
 
-## Run Locally
+![Logo](https://raw.githubusercontent.com/30jannik06/next-webradioplayer/main/Examples/webradioLogo.png)
 
-Clone the project
 
-```bash
-  git clone https://github.com/30jannik06/next-webradioplayer
-```
+# NextWebRadioPlayer - Your Portable Music Companion
 
-Go to the project directory
+Discover a world of music with the NextWebRadioPlayer. Enjoy your favorite stations and explore new sounds anywhere, anytime.
 
-```bash
-  cd next-webradioplayer 
-```
 
-Install dependencies
+## Contributing
 
-```bash
-  npm install
-```
+Contributions are always welcome!
 
-Start the server
+## Screenshots
 
-```bash
-  npm run start
-```
+![App Screenshot](https://raw.githubusercontent.com/30jannik06/next-webradioplayer/main/Examples/Example.png)
+
+
+## Tech Stack
+
+**Server:** Node, React, NextJS, TailwindCSS
+
+
+## Authors
+
+- [@30jannik06](https://www.github.com/30jannik06)
+
+
+## License
+
+[MIT](https://github.com/30jannik06/next-webradioplayer/blob/main/LICENSE)
 
