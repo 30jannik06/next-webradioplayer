@@ -14,11 +14,11 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     const [radioStations, setRadioStations] = useState<IRadioStation[]>([]);
 
     useEffect(() => {
+        const SECRET_KEY =
+            "" + process.env.NEXT_PUBLIC_NEXT_RADIOSTATION_API_URL;
         const fetchRadioStations = async () => {
             try {
-                const response = await fetch(
-                    "http://192.168.1.139:3001/radioStations"
-                );
+                const response = await fetch(SECRET_KEY);
                 const data = await response.json();
                 setRadioStations(data);
             } catch (error) {
