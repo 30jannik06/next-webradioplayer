@@ -22,11 +22,21 @@ export class ErrorBoundary extends Component<
 
     render(): ReactNode {
         if (this.state.hasError) {
-            // You can render a fallback UI here
-            return <div>Something went wrong.</div>;
+            // Customized fallback UI
+            return (
+                <div className="flex flex-col items-center justify-center h-screen text-red-500">
+                    <h1 className="text-4xl font-bold mb-4">
+                        Oops! Something went wrong.
+                    </h1>
+                    <p className="text-lg">
+                        We apologize for the inconvenience. Please try again
+                        later.
+                    </p>
+                    {/* You can add more information or actions for the user */}
+                </div>
+            );
         }
 
         return this.props.children;
     }
 }
-
