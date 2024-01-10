@@ -1,10 +1,11 @@
 import Image from "next/image";
 import instagram from "@/img/insta.svg";
 import React from "react";
+import Link from "next/link";
 
 export const Instagram = () => {
     return (
-        <a
+        <Link
             href="https://www.instagram.com/jannik.so/"
             target="_blank"
             rel="noopener noreferrer"
@@ -12,9 +13,9 @@ export const Instagram = () => {
             <Image
                 src={instagram}
                 alt="Instagram"
-                //width={"auto"}
                 height={38}
+                loading="lazy"
             />
-        </a>
+        </Link>
     );
 };

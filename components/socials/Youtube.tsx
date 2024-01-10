@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import youtube from "@/img/youtube.svg";
+import Link from "next/link";
 
 export const Youtube = () => {
     return (
-        <a
+        <Link
             href="https://www.youtube.com/channel/UClTsYh2A1Dbh086sh7OyVQg"
             target="_blank"
             rel="noopener noreferrer"
@@ -12,9 +13,9 @@ export const Youtube = () => {
             <Image
                 src={youtube}
                 alt="YouTube"
-                //width={"auto"}
                 height={38}
+                loading="lazy"
             />
-        </a>
+        </Link>
     );
 };

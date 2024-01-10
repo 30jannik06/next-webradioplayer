@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import twitter from "@/img/twitter.svg";
+import Link from "next/link";
 
 export const Twitter = () => {
     return (
-        <a
+        <Link
             href="https://twitter.com/30jannik06"
             target="_blank"
             rel="noopener noreferrer"
@@ -12,9 +13,9 @@ export const Twitter = () => {
             <Image
                 src={twitter}
                 alt="Twitter"
-                //width={"auto"}
                 height={38}
+                loading="lazy"
             />
-        </a>
+        </Link>
     );
 };

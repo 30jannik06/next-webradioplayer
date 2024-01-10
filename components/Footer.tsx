@@ -6,6 +6,7 @@ import { Twitter } from "./socials/Twitter";
 import { Instagram } from "./socials/Instagram";
 import { Youtube } from "./socials/Youtube";
 import { Discord } from "./socials/Discord";
+import { Github } from "./socials/Github";
 
 export const Footer: React.FC = () => {
     const { language } = useLanguage();
@@ -16,6 +17,7 @@ export const Footer: React.FC = () => {
                 <Instagram />
                 <Youtube />
                 <Discord />
+                <Github />
             </div>
             <Label className="mt-4">
                 &copy; 2023{" "}
