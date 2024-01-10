@@ -9,6 +9,9 @@ import { IRadioStation } from "@/interfaces/IRadioStation";
 import { IAudioPlayerProps } from "@/interfaces/IAudioPlayerProps";
 import { useLanguage } from "./LanguageProvider";
 
+const PLAY_ICON = <PlayIcon className="mr-2" />;
+const PAUSE_ICON = <PauseIcon className="mr-2" />;
+
 export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     const [isPlaying, setPlaying] = useState(false);
     const [volume, setVolume] = useState(0.5);
@@ -31,7 +34,7 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     };
 
     return (
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div className="bg-gradient-to-r from-blue-700 to-blue-500 p-6 rounded-lg shadow-lg">
             <div className="flex flex-col items-center justify-center mb-4">
                 <Button
                     className={`${
@@ -39,11 +42,7 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
                     } text-white p-4 rounded-full mb-4 text-lg flex items-center`}
                     onClick={togglePlay}
                 >
-                    {isPlaying ? (
-                        <PauseIcon className="mr-2" />
-                    ) : (
-                        <PlayIcon className="mr-2" />
-                    )}
+                    {isPlaying ? PAUSE_ICON : PLAY_ICON}
                     {isPlaying ? "Pause" : "Play"}
                 </Button>
 
