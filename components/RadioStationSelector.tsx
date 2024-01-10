@@ -4,9 +4,6 @@ import { ErrorBoundary } from "./ErrorBoundary";
 import { IRadioStationSelectorProps } from "@/interfaces/IRadioStationSelectorProps";
 import { Input } from "./ui/input";
 
-// Importieren Sie Ihre Radio-Stationen aus der JSON-Datei
-import radioStationsData from "@/data/radioStation.json";
-
 export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     onChange,
     language,
@@ -14,11 +11,28 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
     const [selectedStationId, setSelectedStationId] = useState<string | null>(
         null
     );
+    const [radioStations, setRadioStations] = useState<IRadioStation[]>([]);
+
+    useEffect(() => {
+        const fetchRadioStations = async () => {
+            try {
+                const response = await fetch(
+                    "http://192.168.1.139:3001/radioStations"
+                );
+                const data = await response.json();
+                setRadioStations(data);
+            } catch (error) {
+                console.error("Fehler beim Abrufen der Radiosender:");
+            }
+        };
+
+        fetchRadioStations();
+    }, []);
 
     const handleRadioChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const stationId = event.target.value;
         setSelectedStationId(stationId);
-        const selectedStation = radioStationsData.find(
+        const selectedStation = radioStations.find(
             (station) => station.id === stationId
         );
         onChange(selectedStation || null);
@@ -26,7 +40,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
 
     const groupedStations: { [key: string]: IRadioStation[] } = {};
 
-    radioStationsData.forEach((station) => {
+    radioStations.forEach((station) => {
         const group = station.group || "Other";
         if (!groupedStations[group]) {
             groupedStations[group] = [];
