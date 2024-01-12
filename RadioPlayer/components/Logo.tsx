@@ -15,6 +15,7 @@ export const Logo = () => {
             <Tooltip>
                 <TooltipTrigger className="ml-5 sm:ml-5">
                     <Image
+                        loading="lazy"
                         src={logi}
                         alt="Web Radio Logo"
                         className="h-10 w-auto sm:h-12 md:h-16 lg:h-20 xl:h-24 ml-5 sm:ml-0"

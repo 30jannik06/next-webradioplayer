@@ -16,11 +16,11 @@ export const Header = () => {
                     <LanguageToggler />
                 </div>
             </div>
-            <div className="container mx-auto mt-4">
+            {/* <div className="container mx-auto mt-4">
                 <Label className="text-3xl md:text-4xl lg:text-5xl font-bold">
                     Janniks Web Radio
                 </Label>
-            </div>
+            </div> */}
         </header>
     );
 };

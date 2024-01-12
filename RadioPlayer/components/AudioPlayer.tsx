@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import { PlayIcon, PauseIcon } from "@radix-ui/react-icons";
-import { Button } from "./ui/button";
-import { VolumeControl } from "./VolumeControl";
+import VolumeControl from "./VolumeControl";
 import { RadioStationSelector } from "./RadioStationSelector";
 import { NowPlayingLabel } from "./NowPlayingLabel";
-import AudioController from "./AudioController";
+import { AudioController } from "./AudioController";
 import { IRadioStation } from "@/interfaces/IRadioStation";
 import { IAudioPlayerProps } from "@/interfaces/IAudioPlayerProps";
 import { useLanguage } from "./LanguageProvider";
+import { TogglePlay } from "./TogglePlay";
 
-const PLAY_ICON = <PlayIcon className="mr-2" />;
-const PAUSE_ICON = <PauseIcon className="mr-2" />;
-
-export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
+export const AudioPlayer: React.FC<IAudioPlayerProps> = () => {
     const [isPlaying, setPlaying] = useState(false);
     const [volume, setVolume] = useState(0.5);
     const [selectedRadio, setSelectedRadio] = useState<IRadioStation | null>(
@@ -36,16 +32,7 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = ({ streamUrl }) => {
     return (
         <div className="bg-gradient-to-r from-blue-700 to-blue-500 p-6 rounded-lg shadow-lg">
             <div className="flex flex-col items-center justify-center mb-4">
-                <Button
-                    className={`${
-                        isPlaying ? "bg-red-500" : "bg-blue-500"
-                    } text-white p-4 rounded-full mb-4 text-lg flex items-center`}
-                    onClick={togglePlay}
-                >
-                    {isPlaying ? PAUSE_ICON : PLAY_ICON}
-                    {isPlaying ? "Pause" : "Play"}
-                </Button>
-
+                <TogglePlay isPlaying={isPlaying} onTogglePlay={togglePlay} />
                 <NowPlayingLabel
                     language={language}
                     selectedRadio={selectedRadio}

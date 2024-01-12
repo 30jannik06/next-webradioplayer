@@ -1,3 +1,3 @@
 export interface IAudioPlayerProps {
-    streamUrl: string;
+    // streamUrl: string;
 }

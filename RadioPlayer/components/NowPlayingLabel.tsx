@@ -1,13 +1,10 @@
 import React from "react";
 import { Label } from "./ui/label";
-import { IRadioStation } from "@/interfaces/IRadioStation";
+import { INowPlayingLabelProps } from "@/interfaces/INowPlayingLabelProps";
 
-interface NowPlayingLabelProps {
-    language: string;
-    selectedRadio: IRadioStation | null;
-}
 
-export const NowPlayingLabel: React.FC<NowPlayingLabelProps> = ({
+
+export const NowPlayingLabel: React.FC<INowPlayingLabelProps> = ({
     language,
     selectedRadio,
 }) => {

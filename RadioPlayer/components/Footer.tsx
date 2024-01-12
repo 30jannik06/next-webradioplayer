@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import React from "react";
 import { Label } from "./ui/label";
 import { useLanguage } from "./LanguageProvider";

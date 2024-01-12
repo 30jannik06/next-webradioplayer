@@ -1,7 +1,7 @@
 import { IAudioControllerProps } from "@/interfaces/IAudioControllerProps";
 import React, { useEffect, useRef } from "react";
 
-const AudioController: React.FC<IAudioControllerProps> = ({
+export const AudioController: React.FC<IAudioControllerProps> = ({
     isPlaying,
     volume,
     selectedRadio,
@@ -33,5 +33,3 @@ const AudioController: React.FC<IAudioControllerProps> = ({
         </>
     );
 };
-
-export default AudioController;
