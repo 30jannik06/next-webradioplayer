@@ -2,6 +2,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 
 const NotFoundPage: React.FC = () => {
     const router = useRouter();
@@ -16,9 +17,9 @@ const NotFoundPage: React.FC = () => {
                 <h1 className="text-4xl font-bold mb-4">
                     404 - Seite nicht gefunden
                 </h1>
-                <p className="text-lg">
+                <Label className="text-lg">
                     Entschuldigung, die Seite, die Sie suchen, existiert nicht.
-                </p>
+                </Label>
                 <Button
                     className="text-white hover:underline mt-4 block"
                     onClick={handleButtonClick}

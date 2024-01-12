@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import VolumeControl from "./VolumeControl";
+import {VolumeControl} from "./VolumeControl";
 import { RadioStationSelector } from "./RadioStationSelector";
 import { NowPlayingLabel } from "./NowPlayingLabel";
 import { AudioController } from "./AudioController";
