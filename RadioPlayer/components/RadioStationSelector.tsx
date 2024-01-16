@@ -13,7 +13,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
         null
     );
     const [radioStations, setRadioStations] = useState<IRadioStation[]>([]);
-    const [loading, setLoading] = useState(true); // Zustandsvariable für den Ladezustand
+    const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
         const SECRET_KEY = "https://radiostations.jannik.app/radiostations";
@@ -25,7 +25,7 @@ export const RadioStationSelector: React.FC<IRadioStationSelectorProps> = ({
             } catch (error) {
                 console.error("Fehler beim Abrufen der Radiosender:", error);
             } finally {
-                setLoading(false); // Setze den Ladezustand auf false, unabhängig vom Erfolg oder Fehler
+                setLoading(false);
             }
         };
 
