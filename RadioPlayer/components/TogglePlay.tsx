@@ -13,7 +13,9 @@ export const TogglePlay: React.FC<ITogglePlayProps> = ({
     return (
         <Button
             className={`${
-                isPlaying ? "bg-red-500" : "bg-blue-500"
+                isPlaying
+                    ? "bg-orange-500 hover:bg-orange-400"
+                    : "bg-green-600 hover:bg-green-500"
             } text-white p-4 rounded-full mb-4 text-lg flex items-center`}
             onClick={onTogglePlay}
         >

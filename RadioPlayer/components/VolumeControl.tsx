@@ -56,7 +56,7 @@ export const VolumeControl: React.FC<IVolumeControlProps> = ({
                         step={calculateStep()}
                         value={volume}
                         onChange={handleVolumeChange}
-                        className="w-full h-6 appearance-none bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                        className="w-full h-6 appearance-none bg-red-500 rounded-full"
                     />
                 </div>
                 <div className="ml-4 text-white">

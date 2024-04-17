@@ -7,7 +7,7 @@ import { Label } from "./ui/label";
 
 export const Header = () => {
     return (
-        <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white py-6">
+        <header className="bg-primary dark:bg-primary text-white py-6">
             <div className="container mx-auto flex items-center justify-between">
                 <Link href={"https://www.youtube.com/watch?v=BBJa32lCaaY"}>
                     <Logo />

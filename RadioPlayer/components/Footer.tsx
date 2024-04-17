@@ -11,7 +11,7 @@ import { Github } from "./socials/Github";
 export const Footer: React.FC = () => {
     const { language } = useLanguage();
     return (
-        <footer className="bg-gradient-to-r from-blue-700 to-blue-500 p-6 text-white text-center fixed bottom-0 w-full">
+        <footer className="bg-primary p-6 text-white text-center fixed bottom-0 w-full">
             <div className="flex justify-center space-x-4">
                 <Twitter />
                 <Instagram />

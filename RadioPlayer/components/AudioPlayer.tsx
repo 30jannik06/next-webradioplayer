@@ -30,7 +30,7 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = () => {
     };
 
     return (
-        <div className="bg-gradient-to-r from-blue-700 to-blue-500 p-6 rounded-lg shadow-lg">
+        <div className="bg-primary p-6 rounded-lg shadow-lg">
             <div className="flex flex-col items-center justify-center mb-4">
                 <TogglePlay isPlaying={isPlaying} onTogglePlay={togglePlay} />
                 <NowPlayingLabel
