@@ -7,12 +7,12 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import LoadingScreen from "./loading";
 
-const Home: React.FC = () => {
+const Home = () => {
     return (
         <LanguageProvider>
             <Suspense fallback={<LoadingScreen />}>
                 <Header />
-                <div className="container mx-auto p-4">
+                <div className="mx-auto p-4">
                     <AudioPlayer />
                 </div>
                 <Footer />

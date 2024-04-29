@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {VolumeControl} from "./VolumeControl";
+import { VolumeControl } from "./VolumeControl";
 import { RadioStationSelector } from "./RadioStationSelector";
 import { NowPlayingLabel } from "./NowPlayingLabel";
 import { AudioController } from "./AudioController";
@@ -30,7 +30,7 @@ export const AudioPlayer: React.FC<IAudioPlayerProps> = () => {
     };
 
     return (
-        <div className="bg-primary p-6 rounded-lg shadow-lg">
+        <div className="flex justify-center items-center bg-primary p-6 rounded-lg shadow-lg">
             <div className="flex flex-col items-center justify-center mb-4">
                 <TogglePlay isPlaying={isPlaying} onTogglePlay={togglePlay} />
                 <NowPlayingLabel
