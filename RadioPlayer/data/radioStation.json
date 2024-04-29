@@ -11,12 +11,7 @@
         "streamUrl": "https://d121.rndfnk.com/ard/wdr/1live/diggi/mp3/128/stream.mp3?cid=01FBS02KK2TSYGZSY19X8ZJ3RK&sid=2ZTwaBkwRkhWBzdEQfLj1VtQ3UP&token=w5XP7b1ywEZx4R_OQkpi0WNF7HY8td_UPgQKZbnDeSI&tvf=zeqo2XttoBdkMTIxLnJuZGZuay5jb20",
         "group": "1 Live"
     },
-    {
-        "id": "radio3",
-        "name": "1 Live Chillout",
-        "streamUrl": "https://d141.rndfnk.com/ard/wdr/1live/chillout/mp3/128/stream.mp3?cid=01GRBW9YMFF3AKBC3JQ513E69J&sid=2ZTweUNNffYI8Yupbwfh30riTlc&token=bM20Kp05BU6MQIuIaud7ZOs18Cs31f6nPlF_w2qOxXA&tvf=nXcj-4NtoBdkMTQxLnJuZGZuay5jb20",
-        "group": "1 Live"
-    },
+
     {
         "id": "radio4",
         "name": "ILoveRadio",
@@ -48,18 +43,6 @@
         "group": "ILoveRadio"
     },
     {
-        "id": "radio9",
-        "name": "ILoveRadio Chill",
-        "streamUrl": "http://stream01.iloveradio.de/iloveradio10.mp3",
-        "group": "ILoveRadio"
-    },
-    {
-        "id": "radio10",
-        "name": "ILoveRadio History",
-        "streamUrl": "http://stream01.iloveradio.de/iloveradio12.mp3",
-        "group": "ILoveRadio"
-    },
-    {
         "id": "radio11",
         "name": "ILoveRadio The Beach",
         "streamUrl": "http://stream01.iloveradio.de/iloveradio7.mp3",
@@ -75,12 +58,6 @@
         "id": "radio13",
         "name": "ILoveRadio Rock",
         "streamUrl": "http://stream01.iloveradio.de/iloveradio4.mp3",
-        "group": "ILoveRadio"
-    },
-    {
-        "id": "radio14",
-        "name": "ILoveRadio Chillhop",
-        "streamUrl": "http://stream01.iloveradio.de/iloveradio17.mp3",
         "group": "ILoveRadio"
     },
     {
@@ -280,5 +257,89 @@
         "name": "Radio Bob 90er",
         "streamUrl": "http://streams.radiobob.de/bob-90srock/mp3-192/mediaplayer",
         "group": "Radio Bob"
+    },
+    {
+        "id": "radio48",
+        "name": "RAYFM Dance",
+        "streamUrl": "https://listen.reyfm.de/reyfm-dance/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio49",
+        "name": "RAYFM Gaming",
+        "streamUrl": "https://listen.reyfm.de/reyfm-gaming/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio50",
+        "name": "RAYFM Hits",
+        "streamUrl": "https://listen.reyfm.de/reyfm-hits/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio51",
+        "name": "RAYFM Original",
+        "streamUrl": "https://listen.reyfm.de/reyfm-original/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio52",
+        "name": "RAYFM Charts",
+        "streamUrl": "https://listen.reyfm.de/reyfm-charts/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio53",
+        "name": "RAYFM Deutschrap",
+        "streamUrl": "https://listen.reyfm.de/reyfm-deutschrap/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio54",
+        "name": "RAYFM HipHop",
+        "streamUrl": "https://listen.reyfm.de/reyfm-hip-hop/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio55",
+        "name": "RAYFM Hits2k",
+        "streamUrl": "https://listen.reyfm.de/reyfm-hits2k/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio56",
+        "name": "RAYFM Piano House",
+        "streamUrl": "https://listen.reyfm.de/reyfm-piano_house/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio57",
+        "name": "RAYFM Chill",
+        "streamUrl": "https://listen.reyfm.de/reyfm-chill/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio58",
+        "name": "RAYFM Deutschrap Gold",
+        "streamUrl": "https://listen.reyfm.de/reyfm-deutschrap_gold/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio59",
+        "name": "RAYFM HipHop Gold",
+        "streamUrl": "https://listen.reyfm.de/reyfm-hip-hop_gold/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio60",
+        "name": "RAYFM LoFi",
+        "streamUrl": "https://listen.reyfm.de/reyfm-lofi/",
+        "group": "RAYFM"
+    },
+    {
+        "id": "radio61",
+        "name": "RAYFM Summer",
+        "streamUrl": "https://listen.reyfm.de/reyfm-summer/",
+        "group": "RAYFM"
     }
 ]
